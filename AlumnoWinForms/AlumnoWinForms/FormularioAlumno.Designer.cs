@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.txtDNI = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtApellidos = new System.Windows.Forms.TextBox();
             this.btAdd = new System.Windows.Forms.Button();
             this.lblID = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -39,33 +39,33 @@
             this.lblApellidos = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtID
             // 
-            this.textBox1.Location = new System.Drawing.Point(80, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(52, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtID.Location = new System.Drawing.Point(80, 18);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(52, 20);
+            this.txtID.TabIndex = 0;
             // 
-            // textBox2
+            // txtDNI
             // 
-            this.textBox2.Location = new System.Drawing.Point(266, 18);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtDNI.Location = new System.Drawing.Point(266, 18);
+            this.txtDNI.Name = "txtDNI";
+            this.txtDNI.Size = new System.Drawing.Size(100, 20);
+            this.txtDNI.TabIndex = 1;
             // 
-            // textBox3
+            // txtNombre
             // 
-            this.textBox3.Location = new System.Drawing.Point(80, 51);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(104, 20);
-            this.textBox3.TabIndex = 2;
+            this.txtNombre.Location = new System.Drawing.Point(80, 51);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(104, 20);
+            this.txtNombre.TabIndex = 2;
             // 
-            // textBox4
+            // txtApellidos
             // 
-            this.textBox4.Location = new System.Drawing.Point(266, 54);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(140, 20);
-            this.textBox4.TabIndex = 3;
+            this.txtApellidos.Location = new System.Drawing.Point(266, 54);
+            this.txtApellidos.Name = "txtApellidos";
+            this.txtApellidos.Size = new System.Drawing.Size(140, 20);
+            this.txtApellidos.TabIndex = 3;
             // 
             // btAdd
             // 
@@ -75,11 +75,12 @@
             this.btAdd.TabIndex = 4;
             this.btAdd.Text = "Add";
             this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(30, 25);
+            this.lblID.Location = new System.Drawing.Point(30, 21);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(18, 13);
             this.lblID.TabIndex = 5;
@@ -122,10 +123,10 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.btAdd);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtApellidos);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtDNI);
+            this.Controls.Add(this.txtID);
             this.Name = "FormularioAlumno";
             this.Text = "Alumno";
             this.ResumeLayout(false);
@@ -135,10 +136,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.TextBox txtDNI;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtApellidos;
         private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label lblNombre;

@@ -16,5 +16,22 @@ namespace AlumnoWinForms
         {
             InitializeComponent();
         }
+
+        private void btAdd_Click(object sender, EventArgs e)
+        {
+            var alumno = new Alumno();
+            alumno.Apellidos = txtApellidos.Text;
+            alumno.DNI = txtDNI.Text;
+            alumno.Nombre = txtNombre.Text;
+            alumno.Id = txtID.Text;
+
+            Console.WriteLine(string.Format(@"ID: {0}, Nombre: {1}, Apellidos: {2}, DNI: {3}", alumno.Id
+                , alumno.Nombre, alumno.Apellidos, alumno.DNI));
+        }
+
+        private void Add(Alumno alumno)
+        {
+
+        }
     }
 }
