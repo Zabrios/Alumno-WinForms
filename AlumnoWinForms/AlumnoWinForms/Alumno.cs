@@ -12,5 +12,25 @@ namespace AlumnoWinForms
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
         public string DNI { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            Alumno alumno = obj as Alumno;
+            if (obj == null)
+                return false;
+
+            return Id == alumno.Id &&
+                   Nombre == alumno.Nombre &&
+                   Apellidos == alumno.Apellidos &&
+                   DNI == alumno.DNI;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Id.GetHashCode() ^ this.Nombre.GetHashCode() ^ this.Apellidos.GetHashCode() ^ this.DNI.GetHashCode();
+        }
     }
+
+
+
 }
