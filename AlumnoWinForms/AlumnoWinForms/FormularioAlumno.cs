@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using log4net;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using log4net.Config;
 
 namespace AlumnoWinForms
 {
     public partial class FormularioAlumno : Form, IAlumno
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(FormularioAlumno));
         public FormularioAlumno()
         {
             InitializeComponent();
@@ -36,6 +39,11 @@ namespace AlumnoWinForms
 
         public bool Add(Alumno alumno)
         {
+            // Set up a simple configuration that logs on the console.
+            BasicConfigurator.Configure();
+
+            log.Info("Entrando en Add.");
+
             var addedCorrectly = true;
             //File.WriteAllText(@".\alumno.json", JsonConvert.SerializeObject(alumno));
 
@@ -53,22 +61,8 @@ namespace AlumnoWinForms
                 addedCorrectly = false;
                 throw ex;
             }
+            log.Info("Saliendo de Add.");
             return addedCorrectly;
-
-
-            //using (StreamReader file = File.OpenText(@".\alumno.json"))
-            //using (JsonTextReader reader = new JsonTextReader(file))
-            //{
-            //    JObject al = (JObject)JToken.ReadFrom(reader);
-            //    dynamic result = JsonConvert.DeserializeObject<dynamic>(Convert.ToString(al));
-            //    var alumnoJson = new Alumno { Id = result.Id, Nombre = result.Nombre, Apellidos = result.Apellidos, DNI = result.DNI };
-            //    var alumnoTest = new Alumno { Id = "1", Nombre = "dad", Apellidos = "rer", DNI = "4444" };
-            //    //Console.WriteLine((alumnoTest.Equals(alumnoJson)));
-            //    if (alumnoTest.Equals(alumnoJson))
-            //        MessageBox.Show(String.Format("Son iguales. Hash json : {0}, Hash test : {1}", alumnoJson.GetHashCode(), alumnoTest.GetHashCode()));
-
-            //    //Console.WriteLine(string.Format(@"{0} {1}", id, name));
-            //}
         }
     }
 }
