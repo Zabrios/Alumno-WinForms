@@ -12,12 +12,12 @@ namespace AlumnoWinForms.Unit.Tests
     [TestClass()]
     public class FormularioAlumnoTests
     {
-        private IAlumno mockObject;
+        private IAlumnoRepository mockObject;
 
         [TestInitialize]
         public void Setup()
         {
-            var mock = new Mock<IAlumno>();
+            var mock = new Mock<IAlumnoRepository>();
             var alumno = new Alumno { Id = "1", Nombre = "test", Apellidos = "test2", DNI = "4444" }; 
             mock.Setup(x => x.Add(alumno)).Returns(true);
             mockObject = mock.Object;

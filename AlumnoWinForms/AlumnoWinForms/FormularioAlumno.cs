@@ -15,9 +15,8 @@ using log4net.Config;
 
 namespace AlumnoWinForms
 {
-    public partial class FormularioAlumno : Form, IAlumno
+    public partial class FormularioAlumno : Form
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof(FormularioAlumno));
         public FormularioAlumno()
         {
             InitializeComponent();
@@ -31,38 +30,8 @@ namespace AlumnoWinForms
             alumno.Nombre = txtNombre.Text;
             alumno.Id = txtID.Text;
 
-            //Console.WriteLine(string.Format(@"ID: {0}, Nombre: {1}, Apellidos: {2}, DNI: {3}", alumno.Id
-            //    , alumno.Nombre, alumno.Apellidos, alumno.DNI));
-
-            Add(alumno);
-        }
-
-        public bool Add(Alumno alumno)
-        {
-            // Set up a simple configuration that logs on the console.
-            BasicConfigurator.Configure();
-
-            log.Info("Entrando en Add.");
-
-            var addedCorrectly = true;
-            //File.WriteAllText(@".\alumno.json", JsonConvert.SerializeObject(alumno));
-
-            // serialize JSON directly to a file
-            try
-            {
-                using (StreamWriter file = File.CreateText(@".\alumno.json"))
-                {
-                    JsonSerializer serializer = new JsonSerializer();
-                    serializer.Serialize(file, alumno);
-                }
-            }
-            catch (Exception ex)
-            {
-                addedCorrectly = false;
-                throw ex;
-            }
-            log.Info("Saliendo de Add.");
-            return addedCorrectly;
+            var parser = new JSONParser();
+            parser.Add(alumno);
         }
     }
 }

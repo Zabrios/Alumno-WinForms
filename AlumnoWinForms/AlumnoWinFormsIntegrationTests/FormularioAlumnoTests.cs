@@ -17,7 +17,7 @@ namespace AlumnoWinForms.Unit.Tests
     [TestClass()]
     public class FormularioAlumnoTests
     {
-        IAlumno itfAlumno = new FormularioAlumno();
+        IAlumnoRepository itfAlumno = new JSONParser();
 
         //[TestMethod()]
         //public void FormularioAlumnoTest()
@@ -31,7 +31,7 @@ namespace AlumnoWinForms.Unit.Tests
             var alumno = new Alumno { Id = "1", Nombre = "test", Apellidos = "test2", DNI = "4444" };
             if (itfAlumno.Add(alumno))
             {
-                using (StreamReader file = File.OpenText(@".\alumno.json"))
+                using (StreamReader file = File.OpenText(@"..\..\alumno.json"))
                 using (JsonTextReader reader = new JsonTextReader(file))
                 {
                     JObject al = (JObject)JToken.ReadFrom(reader);

@@ -59,7 +59,8 @@
       <DependentUpon>FormularioAlumno.cs</DependentUpon>
     </Compile>
     <Compile Include="FormularioCore.cs" />
-    <Compile Include="IAlumno.cs" />
+    <Compile Include="IAlumnoRepository.cs" />
+    <Compile Include="JSONParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormularioAlumno.resx">
       <DependentUpon>FormularioAlumno.cs</DependentUpon>

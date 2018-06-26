@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlumnoWinForms
 {
-    public interface IAlumno
+    public interface IAlumnoRepository
     {
         bool Add(Alumno alumno);
     }

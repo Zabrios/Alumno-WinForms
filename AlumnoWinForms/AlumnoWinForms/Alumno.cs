@@ -25,6 +25,13 @@ namespace AlumnoWinForms
                    DNI == alumno.DNI;
         }
 
+        public override string ToString()
+        {
+            return string.Format(@"Id: {0}, Nombre: {1}, 
+                                   Apellidos: {2}, DNI: {3}",
+                                   Id, Nombre, Apellidos, DNI);
+        }
+
         public override int GetHashCode()
         {
             return this.Id.GetHashCode() ^ this.Nombre.GetHashCode() ^ this.Apellidos.GetHashCode() ^ this.DNI.GetHashCode();
