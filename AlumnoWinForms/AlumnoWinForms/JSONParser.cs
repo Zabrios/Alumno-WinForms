@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using log4net;
 using log4net.Config;
 using Newtonsoft.Json;
+using System.Configuration;
 
 namespace AlumnoWinForms
 {
@@ -26,7 +27,11 @@ namespace AlumnoWinForms
             // serialize JSON directly to a file
             try
             {
-                using (StreamWriter file = File.CreateText(@"..\..\alumno.json"))
+                string filePath = ConfigurationManager.AppSettings["Path"];
+                string envPath = Environment.ExpandEnvironmentVariables(@"%VUELING_HOME%\alumno.json");
+                //replace with filePath or envPath
+                using (StreamWriter file = File.CreateText(envPath))
+
                 {
                     JsonSerializer serializer = new JsonSerializer();
                     serializer.Serialize(file, alumno);
