@@ -32,7 +32,11 @@ namespace AlumnoWinForms
 
             var parser = new JSONParser();
             parser.Add(alumno);
-
+            ClearFields();
+        }
+        
+        private void ClearFields()
+        {
             txtApellidos.Clear();
             txtDNI.Clear();
             txtNombre.Clear();
